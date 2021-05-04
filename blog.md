@@ -1,4 +1,4 @@
-# Retro Gaming in Docker
+# DOS Gaming in Docker
 
 Its been nearly 30 years since the height of the DOS era, and how far we have come! Computers have advanced to the point that we can emulate entire systems from the era, down to the processor, in our _web browsers_. All while also checking email, or watching a YouTube video. However, with all of these advancements, our old software has a tendency to fall by the wayside. Particularly games, which often relied on incompatible tricks to eke out every ounce of performance from the machines they ran on.
 
@@ -109,4 +109,23 @@ play:
     END
 ```
 
-Additionally, we have a couple pre-made targets that wrap this for you.
+Additionally, we have a couple pre-made targets that wrap this for you, and all you need to do is have Earthly installed:
+
+* `earthly github.com/dchw/earthly-dos-gaming:main+doom`
+* `earthly github.com/dchw/earthly-dos-gaming:main+cosmo`
+* `earthly github.com/dchw/earthly-dos-gaming:main+secretagent`
+
+You can run your own dos games by running:
+```
+earthly \
+    --build-arg GAME_TAG=mytag \
+    --build-arg GAME_URL=http://my-cool-game.com/download.zip \
+    --build-arg GAME_ARGS=\"THEGAME.EXE\" \
+    github.com/dchw/earthly-dos-gaming:main+play
+```
+
+Make sure you replace the tag, URL, and args as appropriate.
+
+## Conclusion
+
+Its neat that we can make independent bundles, similar to floppy disks were back in the day for shareware. Admittedly, they are much bigger, but its still neat!
